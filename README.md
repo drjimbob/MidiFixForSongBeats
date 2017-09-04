@@ -1,16 +1,16 @@
 # MidiFixForSongBeats
-Fix MIDI files to be able to play in Yamaha Song Beats for DTX drums
 
+## Fix MIDI files to be able to play in Yamaha Song Beats for DTX drums
 
 To use on a Linux/Unix/Mac OS computer, download the three ruby scripts `MidiFixForSongBeats.rb`, `mididefs.rb`, and `midifile.rb` into a directory with MIDI files on a computer with ruby installed.  Often ruby is installed by default.  MIDI files may be downloaded from sites like http://www.midiworld.com/ or https://freemidi.org/.
 
 Then run `ruby MidiFixForSongBeats.rb *.mid` to convert all the MIDI files in the current directory.  The fixed files will appear in a sub-directory called `fixed/`.
 
-This works with [Yamaha DTX drums](https://usa.yamaha.com/products/musical_instruments/drums/el_drums/drum_kits/index.html) and [Yamaha Song Beats (app store link)](https://itunes.apple.com/us/app/song-beats/id546319014?mt=8).
+This works with [Yamaha DTX drums](https://usa.yamaha.com/products/musical_instruments/drums/el_drums/drum_kits/index.html) and [Yamaha Song Beats (app store link)](https://itunes.apple.com/us/app/song-beats/id546319014).
 
 The script that I wrote uses [midifile.rb](http://www.goodeveca.net/midifile_rb/) as well as mididefs (adopted from GMlister) taken from this repository released under an open source license.
 
-This script does the following things:
+## What the MidiFixForSongBeats.rb Script Does
 
 1. Converts to to Format 0 (basically puts everything onto a single midi track).
 2. Strips out SysEx Midi messages (System Exclusive) that prevent it from working
@@ -20,3 +20,22 @@ This script does the following things:
 6. Moves file into subdirectory called 'fixed/' (or custom directory with flag `-o <output_dir>`).
 7. Checks that MIDI file has drums in it and don't convert if the midi file has no drums in it.  (This can be over-ridden with `-f` flag).
 8. Optionally summarizes drums present in song with custom flag (`-s`).  Note some percussion events do not translate to Song Beats events on a standard drum kit; e.g., Tambourine or Maraca, so this may help you figure out why the MIDI events didn't show up.
+
+## How to load Midi files into Song Beats on the iPad/iPhone.
+
+You can do this using Itunes.  You can follow this [youtube video](https://www.youtube.com/watch?v=1Pq42dAKwYM) I found.  The steps are basically:
+
+1. Install [Song Beats](https://itunes.apple.com/us/app/song-beats/id546319014) onto the iPad/iPhone if it's not already installed.  Please note if you don't see it in the app store that SongBeats is listed as an iPhone only application.  So make sure you are not only searching for iPad only apps (or search for iPhone only apps on your iPad). 
+2. Connect the iPad up to your computer with a USB-to-ipad (lightning for new iPads/30-pin connector for older iPads).
+3. Open up iTunes.
+4. Click the iPad/iPhone shaped icon that's next to the drop down menu in the upper left:
+![iPad/iPhone Icon Button in iTunes](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/mac_apps/itunes/macos-itunes12-5-device-callout.jpg "iPad/iPhone Icon Button in iTunes")
+5. In the left-sidebar, select "Apps".
+6. In the main window, then scroll to the bottom to see the File Sharing section. ![File Sharing Section](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/mac_apps/itunes/macos-itunes12-5-apps-file-sharing.jpg "File Sharing Section")
+7. Select Song Beats and then drag-and-drop the fixed midi files into this directory.
+
+## What's the deal with `midifile_rb.tgz` and the `MIDIFILE_RB` directory in this repository?
+
+The parsing of a midi file is being done using the ruby library `midifile.rb` that is available at [`http://www.goodeveca.net/midifile_rb/`](http://www.goodeveca.net/midifile_rb/) and written by someone else.  The files inside the `MIDIFILE_RB` directory are not required for this to work (you only need `MidiFixForSongBeats.rb`, `midifile.rb` and `mididefs.rb`, however the license of the required  `midifile.rb` (see `MIDIFILE_RB/README`) specifies they be distributed along with the file.
+
+>midifile.rb may be freely copied in its entirety provided that this notice, all source code, all documentation, and all other files are included.
