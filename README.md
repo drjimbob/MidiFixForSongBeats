@@ -2,7 +2,9 @@
 
 ## Fix MIDI files to be able to play in Yamaha Song Beats for DTX drums
 
-To use on a Linux/Unix/Mac OS computer, download the three ruby scripts `MidiFixForSongBeats.rb`, `mididefs.rb`, and `midifile.rb` into a directory with MIDI files on a computer with ruby installed.  Often ruby is installed by default.  MIDI files may be downloaded from sites like http://www.midiworld.com/ or https://freemidi.org/.
+To use on a Linux/Unix/Mac OS computer, download the three ruby scripts [`MidiFixForSongBeats.rb`](https://raw.githubusercontent.com/drjimbob/MidiFixForSongBeats/master/MidiFixForSongBeats.rb), [`mididefs.rb`](https://raw.githubusercontent.com/drjimbob/MidiFixForSongBeats/master/mididefs.rb), and [`midifile.rb`](https://raw.githubusercontent.com/drjimbob/MidiFixForSongBeats/master/midifile.rb) into a directory with MIDI files on a computer with ruby installed.  Often ruby is installed by default.  MIDI files may be downloaded from sites like http://www.midiworld.com/ or https://freemidi.org/.
+
+This has not been tested on a windows computer, but in principle the script should work after installing ruby (possibly you'll need minimal changes to deal with file paths operating differently in windows).
 
 Then run `ruby MidiFixForSongBeats.rb *.mid` to convert all the MIDI files in the current directory.  The fixed files will appear in a sub-directory called `fixed/`.
 
