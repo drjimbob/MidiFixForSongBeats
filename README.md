@@ -16,7 +16,7 @@ The script that I wrote uses [midifile.rb](http://www.goodeveca.net/midifile_rb/
 
 ## What the MidiFixForSongBeats.rb Script Does
 
-1. Converts to to Format 0 (basically puts everything onto a single midi track).
+1. Converts to MIDI Format 0 (basically puts everything onto a single midi track).
 2. Strips out SysEx Midi messages (System Exclusive) that prevent the MIDI from working in SongBeats
 3. Strips out all `Program_Change` / `Control_Change` events from channel 10 (Percussion) that sometimes prevent it from working.  (TODO: Figure out which `Program_Change`/`Control_Change` events are fine to keep and leave those in).
 4. Renames Track in first `TRACK_NAME` Meta Event to something based on file name, so in the Song Beats app, the files are listed with a readable name instead of something seemingly random like "Guitar" or "Drums" or "tk1". 
